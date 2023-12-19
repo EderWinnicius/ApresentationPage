@@ -68,6 +68,8 @@ body * {
     text-align: center;
     margin-top: 8px;
 }
+
+
 /*Switch*/
 .switch{
     padding: 16px 0px;
@@ -91,13 +93,12 @@ body * {
     z-index: 1;
     transform: translateY(-50%);
 
+    animation: slide-out 0.2s;
+
 }
 
 .light .switch > button{
-    transition: all 1s;
-    right: 0;
-    left:initial;
-    
+    animation: slide-in 0.2s forwards;    
 }
 
 .switch>span{
@@ -111,6 +112,11 @@ body * {
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 
+}
+
+.switch > button:hover{
+    transition: 0.1s;
+    outline: 4px solid var(--stroke-color);
 }
 
 
@@ -203,3 +209,22 @@ body * {
     }
 }
 
+/*animation*/
+
+@keyframes slide-in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from{
+        left: 50%;
+    }
+    to{
+        left:0;
+    }
+}
